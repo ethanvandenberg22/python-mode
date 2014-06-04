@@ -111,7 +111,7 @@ endfunction
 
 fun! pymode#buffer_post_write() "{{{
     if g:pymode_rope
-        if b:pymode_modified && g:pymode_rope_regenerate_on_write
+        if exists('b:pymode_modified') && b:pymode_modified && g:pymode_rope_regenerate_on_write
             call pymode#debug('regenerate')
             call pymode#rope#regenerate()
         endif
